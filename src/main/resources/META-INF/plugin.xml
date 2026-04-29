@@ -1,0 +1,76 @@
+<idea-plugin>
+    <id>com.github.conisdaw.ignoreinput</id>
+    <name>IgnoreInput</name>
+    <vendor>conisdaw</vendor>
+
+    <icon>/icons/pluginIcon.jpg</icon>
+
+    <depends>com.intellij.modules.platform</depends>
+
+    <actions>
+        <group id="IgnoreInput.Menu" text="IgnoreInput" description="IgnoreInput" popup="true">
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
+
+            <action id="IgnoreInput.Start" class="com.github.conisdaw.ignoreinput.actions.StartIgnoreInputAction"
+                    text="应用代码片段"
+                    description="开始输入已保存的代码片段"/>
+
+            <action id="IgnoreInput.Toggle" class="com.github.conisdaw.ignoreinput.actions.TogglePanelAction"
+                    text="打开代码片段面板"
+                    description="显示或隐藏代码片段面板">
+                <keyboard-shortcut keymap="$default" first-keystroke="ctrl H"/>
+            </action>
+
+            <separator/>
+
+            <action id="IgnoreInput.Slot1" class="com.github.conisdaw.ignoreinput.actions.AbstractSlotAction$Slot1"
+                    text="快捷键 1"
+                    description="启动快捷键 1 对应的代码片段">
+                <keyboard-shortcut keymap="$default" first-keystroke="ctrl 1"/>
+            </action>
+
+            <action id="IgnoreInput.Slot2" class="com.github.conisdaw.ignoreinput.actions.AbstractSlotAction$Slot2"
+                    text="快捷键 2"
+                    description="启动快捷键 2 对应的代码片段">
+                <keyboard-shortcut keymap="$default" first-keystroke="ctrl 2"/>
+            </action>
+
+            <action id="IgnoreInput.Slot3" class="com.github.conisdaw.ignoreinput.actions.AbstractSlotAction$Slot3"
+                    text="快捷键 3"
+                    description="启动快捷键 3 对应的代码片段">
+                <keyboard-shortcut keymap="$default" first-keystroke="ctrl 3"/>
+            </action>
+
+            <action id="IgnoreInput.Slot4" class="com.github.conisdaw.ignoreinput.actions.AbstractSlotAction$Slot4"
+                    text="快捷键 4"
+                    description="启动快捷键 4 对应的代码片段">
+                <keyboard-shortcut keymap="$default" first-keystroke="ctrl 4"/>
+            </action>
+
+            <action id="IgnoreInput.Slot5" class="com.github.conisdaw.ignoreinput.actions.AbstractSlotAction$Slot5"
+                    text="快捷键 5"
+                    description="启动快捷键 5 对应的代码片段">
+                <keyboard-shortcut keymap="$default" first-keystroke="ctrl 5"/>
+            </action>
+
+            <separator/>
+
+            <action id="IgnoreInput.Stop" class="com.github.conisdaw.ignoreinput.actions.StopIgnoreInputAction"
+                    text="取消演示"
+                    description="停止当前代码片段演示">
+                <keyboard-shortcut keymap="$default" first-keystroke="ctrl 0"/>
+            </action>
+        </group>
+    </actions>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <toolWindow id="IgnoreInput"
+                    factoryClass="com.github.conisdaw.ignoreinput.toolwindow.IgnoreInputToolWindowFactory"
+                    anchor="left"
+                    icon="/icons/pluginIcon.jpg"/>
+
+        <statusBarWidgetFactory implementation="com.github.conisdaw.ignoreinput.statusbar.IgnoreInputStatusBarWidgetFactory"
+                                id="IgnoreInputStatusBar"
+                                order="after Position"/>
+    </extensions>
+</idea-plugin>
